@@ -3,6 +3,7 @@ const { take } = require('rxjs/operators')
 const erc20Abi = require('human-standard-token-abi')
 const { providers, utils, Wallet, getDefaultProvider } = require("ethers");
 const abiCoder = require('web3-eth-abi');
+//const SuperfluidSDK = require("@superfluid-finance/js-sdk");
 
 const tokenAddress = '0x57Ab1ec28D129707052df4dF418D58a2D46d5f51'; //sUSD contract on Kovan
 const receiver = '0x4e5687738DEcd4b2D3a16c33944686DCE2811399'; // Replace with address of your choice
@@ -22,7 +23,8 @@ async function main(): Promise<void> {
 console.log('create session', await sdk.createSession())
     await sdk.computeContractAccount({sync: true})
     const { state, notifications$ } = sdk
-    const notification = notifications$.pipe(take(1)).toPromise()
+sdk.notifications$.subscribe(notification => console.log('notification:', notification));
+//    const notification = notifications$.pipe(take(1)).toPromise()
     console.log(state.account) // pay 0.1 to this account
   // -------------- etherspot session
   // Create a wallet instance from a mnemonic...

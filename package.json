@@ -8,11 +8,13 @@
     "start": "ts-node main.ts"
   },
   "dependencies": {
+    "@superfluid-finance/js-sdk": "^0.4.3",
     "ethers": "^5.4.0",
     "etherspot": "^1.12.0",
     "human-standard-token-abi": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.1.0",
+    "web3": "^1.3.6",
     "web3-eth-abi": "^1.3.6"
   }
 }
