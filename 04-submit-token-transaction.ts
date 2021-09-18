@@ -33,10 +33,11 @@ async function main(): Promise<void> {
   const bal = (await sdk.getAccountBalances()).items[0].balance.toString()
   console.log('Balance ETHs', ethers.utils.formatEther(bal))
 
-  const receiver = '0xA7042de62a3bC6e40724d5A804F86bfDB1BfA4F2'; // Replace with address of your choice
+  const receiver = '0x5842d94A698d625857993859ac5b380dC3e5C3eA'; // Replace with address of your choice
   const erc20Address = '0xbe49ac1eadac65dccf204d4df81d650b50122ab2'; //fUSDC contract on Ropsten
   //const erc20Address = '0x9de9cde889a40b7402d824386064d17792298e1b'; //PLR contract on Kovan
-  const tokens = '8000000000000000000'; // 1 token with 18 decimal
+  const tokens = '8000000000000000000'; // 8 tokens with 18 decimal
+// you need to use https://ropsten.etherscan.io/address/0xbe49ac1eadac65dccf204d4df81d650b50122ab2#writeContract transferFrom to get your own fUSDC tokens finally. (from Smart Wallet Contract respected to sdk account, 0xBF4f2D1Fdaf898DF5D9a53a9a5019856DB88Aa1B, where you can refer to console.log in line 30
 
   const methodName = erc20Abi.find(({ name }) => name === 'transfer');
   console.log('Method Name ', methodName);
