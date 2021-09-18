@@ -6,6 +6,7 @@ import { Sdk, randomPrivateKey, NetworkNames, EnvNames } from 'etherspot';
  */
 
 const privateKey = "0x398dd483a53fef9b5b37c142bdbabcef69a9b5e133885ffb62981f6484ee7aa1"
+var batchHash: string = 'xxx';
 
 async function main(): Promise<void> {
   const sdk = new Sdk(privateKey, {
@@ -32,12 +33,29 @@ async function main(): Promise<void> {
   console.log('Estimating transaction');
   await sdk.estimateGatewayBatch().then(async (result) => {
     console.log('Estimation ', result.estimation);
-    const hash = await sdk.submitGatewayBatch();
-    console.log('Transaction submitted ', hash);
+    batchHash = (await sdk.submitGatewayBatch()).hash;
+    console.log('Transaction submitted, hash: ', batchHash);
   })
   .catch((error) => {
     console.log('Transaction estimation failed with error ',error.message);
   });
+
+  console.log('hash', batchHash)
+  var xx: string = 'wait'
+  while(xx !== 'Sent') {
+    await new Promise(r => setTimeout(r, 2000));
+    console.log(xx)
+    sdk
+      .getGatewaySubmittedBatch({
+        hash: batchHash,
+      }).then(
+        (x) => {
+          console.log('🙉 batch process: ', x.state)
+          xx = x.state;
+        }
+      )
+      .catch(console.error)
+  }
 }
 
 main()
