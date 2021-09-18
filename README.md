@@ -57,3 +57,6 @@ $ ts-node main.ts
 # learn etherspot by examples
 
 ```
+
+## ReferenceError: window is not defined
+> Metamask is not support the code in CLI, you can see example in 05-submit-eth-transactions-with-metamask.ts, it's fail.
