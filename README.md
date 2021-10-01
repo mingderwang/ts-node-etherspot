@@ -39,7 +39,7 @@ yarn 04-transfer-tokens
 # Q&A
 ## if you are not create sdk corretly, you may see the following wierd error messages
 ```
-~/src/ts-node-etherspot(main*) » yarn start                                                              mingderwang@MingderdeMBP
+~/src/ts-node-etherspot(main*) » yarn start                                                              
 yarn run v1.22.10
 $ ts-node main.ts
 
