@@ -8,11 +8,13 @@
     "02-list-of-networks": "ts-node-dev --respawn --transpile-only 02-list-of-networks.ts",
     "03-transfer-eths": "ts-node-dev --respawn --transpile-only 03-submit-eth-transaction.ts",
     "04-transfer-tokens": "ts-node-dev --respawn --transpile-only 04-submit-token-transaction.ts",
-    "05-submit-with-metamask": "ts-node-dev --respawn --transpile-only 05-submit-eth-transactions-with-metamask.ts"
+    "05-submit-with-metamask": "ts-node-dev --respawn --transpile-only 05-submit-eth-transactions-with-metamask.ts",
+    "test": "npx ts-node test.ts"
   },
   "dependencies": {
     "@etherspot/contracts": "^1.3.0",
     "@superfluid-finance/js-sdk": "^0.4.3",
+    "dotenv": "^16.0.1",
     "ethers": "^5.4.0",
     "etherspot": "^1.12.0",
     "reflect-metadata": "^0.1.13",
